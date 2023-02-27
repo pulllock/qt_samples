@@ -52,3 +52,35 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_actioFontBold_triggered(bool checked)
+{
+    QTextCharFormat fmt;
+    fmt = ui->textEdit->currentCharFormat();
+    if (checked) {
+        fmt.setFontWeight(QFont::Bold);
+    } else {
+        fmt.setFontWeight(QFont::Normal);
+    }
+
+    ui->textEdit->mergeCurrentCharFormat(fmt);
+}
+
+
+void MainWindow::on_actionFontItalic_triggered(bool checked)
+{
+    QTextCharFormat fmt;
+    fmt = ui->textEdit->currentCharFormat();
+    fmt.setFontItalic(checked);
+    ui->textEdit->mergeCurrentCharFormat(fmt);
+}
+
+
+void MainWindow::on_actionuFontUnderline_triggered(bool checked)
+{
+    QTextCharFormat fmt;
+    fmt = ui->textEdit->currentCharFormat();
+    fmt.setFontUnderline(checked);
+    ui->textEdit->mergeCurrentCharFormat(fmt);
+}
+

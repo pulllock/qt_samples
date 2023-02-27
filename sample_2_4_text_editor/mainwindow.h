@@ -19,6 +19,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_actioFontBold_triggered(bool checked);
+
+    void on_actionFontItalic_triggered(bool checked);
+
+    void on_actionuFontUnderline_triggered(bool checked);
+
 private:
     Ui::MainWindow *ui;
 
