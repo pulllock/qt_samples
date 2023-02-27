@@ -24,7 +24,7 @@ QT samples
 # 可创建的应用程序的模板
 
 - Qt Widgets Application支持桌面平台的有图形用户界面的应用程序，GUI设计完全基于C++，采用Qt提供的一套C++类库
-  - Base class：QmainWindow是主窗口类，主窗口具有主菜单栏、工具栏、状态栏
+  - Base class：QMainWindow是主窗口类，主窗口具有主菜单栏、工具栏、状态栏
   - Base class：QWidget是所有具有可视界面类的基类，QWidget创建的界面对各种界面组建都可以支持
   - Base class：QDialog是对话框类，可建立一个基于对话框的界面
 - Qt Console Application控制台应用程序，无GUI界面
