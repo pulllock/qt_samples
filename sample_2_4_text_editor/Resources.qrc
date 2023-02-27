@@ -11,5 +11,6 @@
         <file>images/italic.bmp</file>
         <file>images/new.bmp</file>
         <file>images/underline.bmp</file>
+        <file>images/app.ico</file>
     </qresource>
 </RCC>

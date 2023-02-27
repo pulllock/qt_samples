@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     // 调用自定义的ui初始化
     initUi();
+
+    // 调用信号和槽函数初始化
+    initSignalSlots();
 }
 
 void MainWindow::initUi() {
@@ -53,7 +56,7 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_actioFontBold_triggered(bool checked)
+void MainWindow::on_actionFontBold_triggered(bool checked)
 {
     QTextCharFormat fmt;
     fmt = ui->textEdit->currentCharFormat();
@@ -76,7 +79,7 @@ void MainWindow::on_actionFontItalic_triggered(bool checked)
 }
 
 
-void MainWindow::on_actionuFontUnderline_triggered(bool checked)
+void MainWindow::on_actionFontUnderline_triggered(bool checked)
 {
     QTextCharFormat fmt;
     fmt = ui->textEdit->currentCharFormat();
@@ -84,3 +87,44 @@ void MainWindow::on_actionuFontUnderline_triggered(bool checked)
     ui->textEdit->mergeCurrentCharFormat(fmt);
 }
 
+
+void MainWindow::on_textEdit_copyAvailable(bool b)
+{
+    // 更新剪切、复制、粘贴的enabled属性
+    ui->actionCut->setEnabled(b);
+    ui->actionCopy->setEnabled(b);
+    ui->actionPaste->setEnabled(ui->textEdit->canPaste());
+}
+
+
+void MainWindow::on_textEdit_selectionChanged()
+{
+    // 更新粗体、斜体、下划线的action的checked属性
+    QTextCharFormat fmt;
+    // 获取文字的格式
+    fmt = ui->textEdit->currentCharFormat();
+    ui->actionFontItalic->setChecked(fmt.fontItalic());
+    ui->actionFontBold->setChecked(fmt.font().bold());
+    ui->actionFontUnderline->setChecked(fmt.fontUnderline());
+}
+
+void MainWindow::initSignalSlots() {
+    // 信号与槽的关联
+    connect(spinBoxFontSize, SIGNAL(valueChanged(int)), this, SLOT(on_spinBoxFontSize_valueChanged(int)));
+    connect(fontComboBox, SIGNAL(currentIndexChanged(const QString &)), this, SLOT(on_fontComboBox_currentIndexChanged(const QString &)));
+}
+
+void MainWindow::on_spinBoxFontSize_valueChanged(int fontSize) {
+    // 改变字体大小
+    QTextCharFormat fmt;
+    fmt.setFontPointSize(fontSize);
+    ui->textEdit->mergeCurrentCharFormat(fmt);
+    progressBar->setValue(fontSize);
+}
+
+void MainWindow::on_fontComboBox_currentIndexChanged(const QString &arg1) {
+    // 设置字体
+    QTextCharFormat fmt;
+    fmt.setFontFamily(arg1);
+    ui->textEdit->mergeCurrentCharFormat(fmt);
+}

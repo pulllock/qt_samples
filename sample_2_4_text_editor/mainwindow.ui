@@ -31,7 +31,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>28</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -57,9 +57,9 @@
     <property name="title">
      <string>格式</string>
     </property>
-    <addaction name="actioFontBold"/>
+    <addaction name="actionFontBold"/>
     <addaction name="actionFontItalic"/>
-    <addaction name="actionuFontUnderline"/>
+    <addaction name="actionFontUnderline"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -85,8 +85,8 @@
    <addaction name="actionPaste"/>
    <addaction name="separator"/>
    <addaction name="actionFontItalic"/>
-   <addaction name="actioFontBold"/>
-   <addaction name="actionuFontUnderline"/>
+   <addaction name="actionFontBold"/>
+   <addaction name="actionFontUnderline"/>
    <addaction name="separator"/>
   </widget>
   <action name="actionCut">
@@ -134,7 +134,7 @@
     <string>Ctrl+V</string>
    </property>
   </action>
-  <action name="actioFontBold">
+  <action name="actionFontBold">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -164,7 +164,7 @@
     <string>斜体</string>
    </property>
   </action>
-  <action name="actionuFontUnderline">
+  <action name="actionFontUnderline">
    <property name="checkable">
     <bool>true</bool>
    </property>

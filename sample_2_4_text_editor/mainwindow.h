@@ -20,11 +20,21 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_actioFontBold_triggered(bool checked);
+    void on_actionFontBold_triggered(bool checked);
 
     void on_actionFontItalic_triggered(bool checked);
 
-    void on_actionuFontUnderline_triggered(bool checked);
+    void on_actionFontUnderline_triggered(bool checked);
+
+    void on_textEdit_copyAvailable(bool b);
+
+    void on_textEdit_selectionChanged();
+
+    // 改变字体大小的槽函数
+    void on_spinBoxFontSize_valueChanged(int fontSize);
+
+    // 选择字体的槽函数
+    void on_fontComboBox_currentIndexChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
@@ -43,5 +53,8 @@ private:
 
     // 代码实现的UI初始化
     void initUi();
+
+    // 初始化关联信号和槽函数
+    void initSignalSlots();
 };
 #endif // MAINWINDOW_H
