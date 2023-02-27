@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/cut.bmp</file>
+        <file>images/open.bmp</file>
+        <file>images/paste.bmp</file>
+        <file>images/copy.bmp</file>
+        <file>images/bold.bmp</file>
+        <file>images/clear.bmp</file>
+        <file>images/close.bmp</file>
+        <file>images/font.ico</file>
+        <file>images/italic.bmp</file>
+        <file>images/new.bmp</file>
+        <file>images/underline.bmp</file>
+    </qresource>
+</RCC>
