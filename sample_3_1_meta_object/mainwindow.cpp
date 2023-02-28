@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::on_ageChanged(int value)
 {
+    // 宏Q_UNUSED(name)，用在函数定义中不在函数体里使用的参数，如果不使用该宏定义，编译器会出现参数未使用的警告
     Q_UNUSED(value);
     // 使用qobject_cast()进行动态投射
     QPerson *aPerson = qobject_cast<QPerson *>(sender());
