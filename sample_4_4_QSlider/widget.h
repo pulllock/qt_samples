@@ -28,6 +28,10 @@ private slots:
 
     void on_radioButtonHex_clicked();
 
+    void on_horizontalSlider_valueChanged(int value);
+
+    void on_horizontalScrollBar_valueChanged(int value);
+
 private:
     Ui::Widget *ui;
 };

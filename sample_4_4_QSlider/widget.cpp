@@ -71,9 +71,22 @@ void Widget::on_radioButtonHex_clicked()
     ui->lcdNumber->setHexMode();
 }
 
+void Widget::on_horizontalSlider_valueChanged(int value)
+{
+    // 水平Slider滑动
+    ui->verticalSlider->setValue(value);
+    ui->progressBarHorizontal->setValue(value);
+    ui->progressBarVertical->setValue(value);
+}
+
+void Widget::on_horizontalScrollBar_valueChanged(int value)
+{
+    ui->verticalScrollBar->setValue(value);
+    ui->progressBarHorizontal->setValue(value);
+    ui->progressBarVertical->setValue(value);
+}
+
 Widget::~Widget()
 {
     delete ui;
 }
-
-
