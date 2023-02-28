@@ -140,3 +140,42 @@ QT samples
   - Qt Designer：用于扩展Qt Designer的类
   - Qt Help：在应用程序中集成在线文档的类，实现类似于Qt Assistant的功能
   - Qt UI Tools：操作Qt Designer生成窗体的类
+
+# QString
+
+QString存储字符串采用的是Unicode码，每一个字符是一个16位的QChar，所以QString处理中文字符没有问题，一个汉字算是一个字符
+
+# 时间日期类
+
+- QTime
+- QDate
+- QDateTime
+- QTimer：定时器
+
+# 常用界面设计组件
+
+- GridLayout
+- VerticalLayout
+- VerticalSpacer
+- HorizontalSpacer
+- QLabel
+- QLineEdit
+- QSpinBox
+- QDoubleSpinBox
+- QSlider
+- QScrollBar
+- QDial
+- QProgressBar
+- QLCDNumber
+- QTimeEdit
+- QDateEdit
+- QDateTimeEdit
+- QCalendarWidget
+- QComboBox
+- QPlainTextEdit
+- QTextEdit
+- QListWidget
+- QToolButton
+- QTabWidget
+- QSplitter
+- QToolbox
