@@ -2,6 +2,9 @@
 #include <QFileDialog>
 #include <QColorDialog>
 #include <QFontDialog>
+#include <QLineEdit>
+#include <QInputDialog>
+#include <QMessageBox>
 #include "dialog.h"
 #include "./ui_dialog.h"
 
@@ -90,66 +93,143 @@ void Dialog::on_pushButtonSelectFont_clicked()
 
 void Dialog::on_pushButtonQuestion_clicked()
 {
+    QString title = "Question消息框";
+    QString info = "文件已被修改，是否保存修改？";
 
+    // 默认按钮
+    QMessageBox::StandardButton defaultButton = QMessageBox::NoButton;
+
+    // 选择的按钮
+    QMessageBox::StandardButton result;
+
+    result = QMessageBox::question(
+            this,
+            title,
+            info,
+            QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel,
+            defaultButton
+            );
+    if (result == QMessageBox::Yes) {
+        ui->plainTextEdit->appendPlainText("Question消息框：Yes被选择");
+    } else if (result == QMessageBox::No) {
+        ui->plainTextEdit->appendPlainText("Question消息框：No被选择");
+    } else if (result == QMessageBox::Cancel) {
+        ui->plainTextEdit->appendPlainText("Question消息框：Cancel被选择");
+    } else {
+        ui->plainTextEdit->appendPlainText("Question消息框：无选择");
+    }
 }
 
 
 void Dialog::on_pushButtonInformation_clicked()
 {
-
+    QString title = "Information消息框";
+    QString info = "已设置";
+    QMessageBox::information(this, title, info, QMessageBox::Ok, QMessageBox::NoButton);
 }
 
 
 void Dialog::on_pushButtonWarning_clicked()
 {
-
+    QString title = "Warning消息框";
+    QString info = "警告";
+    QMessageBox::warning(this, title, info);
 }
 
 
 void Dialog::on_pushButtonCritical_clicked()
 {
-
+    QString title = "Critical消息框";
+    QString info = "验证警告";
+    QMessageBox::critical(this, title, info);
 }
 
 
 void Dialog::on_pushButtonAbout_clicked()
 {
-
+    QString title = "About消息框";
+    QString info = "About......";
+    QMessageBox::about(this, title, info);
 }
 
 
 void Dialog::on_pushButtonAboutQt_clicked()
 {
-
+    QString title = "AboutQt消息框";
+    QMessageBox::aboutQt(this, title);
 }
 
 
 void Dialog::on_pushButtonString_clicked()
 {
-
+    QString title = "输入文字对话框";
+    QString labelText = "请输入文件名";
+    QString defaultText = "新建文件.txt";
+    QLineEdit::EchoMode echoMode = QLineEdit::Normal;
+    bool ok = false;
+    QString text = QInputDialog::getText(this, title, labelText, echoMode, defaultText, &ok);
+    if (ok && !text.isEmpty()) {
+        ui->plainTextEdit->appendPlainText(text);
+    }
 }
 
 
 void Dialog::on_pushButtonInt_clicked()
 {
-
+    QString title = "输入整数对话框";
+    QString labelText = "设置字体大小";
+    int defaultValue = ui->plainTextEdit->font().pointSize();
+    int min = 6;
+    int max = 50;
+    int step = 1;
+    bool ok = false;
+    int value = QInputDialog::getInt(this, title, labelText,defaultValue, min, max, step, &ok);
+    if (ok) {
+        QFont font = ui->plainTextEdit->font();
+        font.setPointSize(value);
+        ui->plainTextEdit->setFont(font);
+    }
 }
 
 
 void Dialog::on_pushButtonFloat_clicked()
 {
-
+    QString title = "输入浮点数对话框";
+    QString labelText = "输入一个浮点数";
+    float defaultValue = 3.13;
+    float min = 0;
+    float max = 10000;
+    // 小数点位数
+    int decimals = 2;
+    bool ok = false;
+    float value = QInputDialog::getDouble(this, title, labelText, defaultValue, min, max, decimals, &ok);
+    if (ok) {
+        QString str = QString::asprintf("输入了一个浮点数：%.2f", value);
+        ui->plainTextEdit->appendPlainText(str);
+    }
 }
 
 
 void Dialog::on_pushButtonItem_clicked()
 {
-
+    QStringList items;
+    items << "优秀" << "良好" << "合格" << "不合格";
+    QString title = "条目选择对话框";
+    QString labelText = "选择级别";
+    // 初始选择项
+    int currentIndex = 0;
+    // ComboBox是否可编辑
+    bool editable = true;
+    bool ok = false;
+    QString text = QInputDialog::getItem(this, title, labelText, items, currentIndex, editable, &ok);
+    if (ok && !text.isEmpty()) {
+        ui->plainTextEdit->appendPlainText(text);
+    }
 }
 
 
-void Dialog::on_pushButton_17_clicked()
+void Dialog::on_pushButtonClear_clicked()
 {
-
+    ui->plainTextEdit->clear();
 }
 

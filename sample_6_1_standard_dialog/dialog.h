@@ -48,7 +48,7 @@ private slots:
 
     void on_pushButtonItem_clicked();
 
-    void on_pushButton_17_clicked();
+    void on_pushButtonClear_clicked();
 
 private:
     Ui::Dialog *ui;

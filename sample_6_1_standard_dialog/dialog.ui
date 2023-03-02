@@ -169,7 +169,7 @@
       </property>
       <layout class="QGridLayout" name="gridLayout_5">
        <item row="0" column="0">
-        <widget class="QPushButton" name="pushButton_17">
+        <widget class="QPushButton" name="pushButtonClear">
          <property name="text">
           <string>清除文本框内容</string>
          </property>
